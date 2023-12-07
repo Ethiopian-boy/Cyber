@@ -1,0 +1,94 @@
+#####To solve POKEMON 
+
+1) nmap scaning 
+      
+          [nmap -sC -sV IP]
+
+
+then we will find the ssh is open and so we gonna use it.
+=> As wecan see from the cource code we have this '<pokemon>:<hack_the_pokemon>'
+
+the now we gonna use ssh 
+*************************************************
+    TO activate ss] shell =>[sudo systemctl enable ssh]
+                          =>[sudo systemctl start ssh]
+
+2)to get into pokemon:-
+
+        [ssh pokemon@IP]
+
+        * as password: 'hack_the_pokemon'
+
+then by typing 'yes'  we gonna get into the  'pokemona@' directory
+
+            [ls]
+            [cd Desktop]
+            [ls]
+            [unzip P0kemon.zip]
+            [ls]
+            [cd P0kemon/]
+            [ls]
+            [cat grass-type.txt]
+    BOOM! we found  '50 6f 4b 65 4d 6f 4e 7b 42 75 6c 62 61 73 61 75 72 7d'
+    ===> So now we need to convert it on 'cyberchef'
+    and submit it
+
+    then ====> 
+          we gonna use command to come back from privous directory
+
+          [cd]
+          [find / -name water-type.txt 2> /dev/null]
+
+  BOOOM! again we found 'Ecgudfxq_EcGmP{Ecgudfxq}' so now we need to convert it on 'cyberchif' by making/ choosing 'rot' and once it coverted we will submit i
+
+  ===> then we need to use command to fin 'Videos' folder
+
+          [ls]
+          [cd Videos]
+          [ls]
+          [cd Gotta]
+          [ls]
+          [cd Them]
+          [ls]
+          [cd ALL!]
+          [ls]
+          [cat Could_this_be_what_Im_looking_for?.cplusplus]
+
+Wow we have got the root accessing hint
+   THIS "# include <iostream>
+
+          int main() {
+      	std::cout << "ash : pikapika"
+	          return 0;
+"
+
+===> ona command line again 
+
+     [cd ect]
+     [ls]
+     [cd why_am_i_here?]
+     [ls]
+     [cat fire-type.txt]
+
+BOOOM! we have found 'UDBrM20wbntDaGFybWFuZGVyfQ==' so again we need to convert it, then submit it
+
+======
+
+  ON Newtab of commandline
+   we gonna use 'ssh'
+--------------------------------
+
+            [ssh ash@IP]
+            [whoami]
+            [ls]
+            [cd /home]
+            [ls]
+            [cat roots-pokemon.txt]
+
+       WOW! we foun 'pikachu!'
+
+Done!!!
+
+
+
+

