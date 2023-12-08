@@ -1,0 +1,25 @@
+we found a PCAP file from the web
+Wire shark is introduced
+
+
+gobuster then target-ip/mail then you will find a PCAP file 
+download and open in wireshard do the necessary things you know it
+
+add the host name you found on wireshark in you local machine using the target ip address
+
+then access the domain name on the browser then go to the login.php enter the credential you found on the wiresharks then login. user reverse shell cheat sheet copy the netcat command paste on the command on the login page then change the ip and if you want the port number 
+then come back listen using nc -lvnp port then you have reached some places.
+
+cat /etc/crontab ; cd /opt ; ls -la ; cd .backups ; ls ;
+
+then found 'jake_id_rsa.pub.backup'.
+
+Then generate your own key  by using 'ssh-keygen' then find the generated key in the /home/gurmu/.ssh
+
+then copy the content of the public key then replace it with public key of 'jake_id_rsa.pub.backup'.
+
+and then withou going from this '/home/gurmu/.ssh' directory write and execute this command 'ssh -i id_rsa jake@10.10.175.212' to login as a jake
+
+then sudo -l check the option search on the gtfobins copy the commands you find and finally you are in the root.
+
+

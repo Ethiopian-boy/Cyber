@@ -1,0 +1,12 @@
+After performing the usual nmap scan searching for directories on the webs and accessing a file from ftp ports what you have to do is 
+go check the ip-address/simple page and there you will find the Text about cms made simple with its version
+go and search on google 'exploit db' then after accesssing the website search the 'cms made simmple' and by checking the versions you found on this ip-address/simple page and search results from this command 'searchsploit cms made simple', you will find a sql injections and check all the informations
+
+and now to crack the password and to find the username save the python file you found the 'exploit db' website in your directory after fixing some syntax error for that pyhton file use this command to run the python file python fileName.py and then it will tell you to use url and worldlists flag to crack the password and username then provide that for it. the final command will be 
+ python exploit.py -u http://10.10.65.93/simple --crack -w /usr/share/wordlists/rockyou.txt
+The above commands takes some times to find all the exact with username and password. but it gave us first the username so meanwhile it runs we can use hydra to check the password 'hydra -l mitch -P /usr/share/wordlists/rockyou.txt -s 2222 10.10.65.93 ssh' note=> the reason why we used -s flag with port 2222 is, the ssh service in this target is not running on the normal port 22(to specify the non-standard SSH port). And now we have the username and password 'mitch:secret' so we can ssh into the system using this command. 'ssh mitch@10.10.145.60 -p 2222'  NOTE -p 2222 to specify the non-standard SSH port
+ Then we are logged in as mitch
+ 
+ to privelage escalations check the sudo -l and then you will find that /usr/bin/vim and find on gtfobins copy the command and run it. you will be the root.
+
+

